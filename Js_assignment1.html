@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<div>
+	<label for="demo"> Enter Your text Here: </label>
+	<input type="text" name="demo" id="demo">
+
+	<button onclick="enter();">Enter</button>
+
+	<br><br>
+	<label for="word"> Enter word to replace: </label>
+	<input type="text" name="word" id="word">
+	<br><br>
+	<label for="replace">  Enter word to replace with: </label>
+	<input type="text" name="replace" id="replace">
+	<br><br>
+
+	<button onclick="result();" >Replace</button>
+
+	<br><br>
+	<div id="view"></div>
+</div>
+</body>
+
+<script type="text/javascript">
+	function enter(){
+		var text = document.getElementById('demo').value;
+		document.getElementById('view').innerHTML = text;
+	}
+
+	function result(){
+		var word = document.getElementById('word').value;
+		var replace = document.getElementById('replace').value;
+
+		document.getElementById('view').innerHTML = document.getElementById('view').innerHTML.replace(word, replace);
+	}
+
+
+
+
+</script>
+</body>
+</html>

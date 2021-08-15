@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<div>
+	<form>
+	<label for="calls">Enter Number of Calls : </label>
+	<input type="number" name="calls" id="calls">
+<br>
+<br>
+	<label for="sms">Enter Number of SMS : </label>
+	<input type="number" name="sms" id="sms">
+<br>
+<br>	
+	</form>
+	<button onclick="result();">Result</button>
+<br>
+<br>
+
+</div>
+</body>
+
+<script type="text/javascript">
+	function call(){
+		var calls = document.getElementById('calls').value;
+		var bill = 0.0;
+
+		if(calls<=50){
+			bill = 0.5*calls;
+		} else if(calls>50 && calls<=150){
+			calls = calls - 50;
+			bill =  25.0 + (0.70*calls);
+		}else if(calls>150 && calls<=300){
+			calls = calls - 150;
+			bill = 25.0 + 70.0 + (0.85*calls);
+		}else{
+			calls = calls-300;
+			bill = 25.0 + 70.0 + 127.5 + (0.95*calls);
+		}
+
+		return bill;
+	}
+	function sms(){
+		var smsCharge = 0.0;
+
+		var sms = document.getElementById('sms').value;
+
+		if(sms<=50){
+			bill = 0.0;
+		} else if(sms>50 && sms<=200){
+			sms = sms - 50;
+			bill =  0.0 + (0.25*sms);
+		}else if(sms>200 && sms<=400){
+			sms = sms - 200;
+			bill = 0.0 + 37.5 + (0.40*sms);
+		}else{
+			sms = sms-400;
+			bill = 0.0 + 37.5 + 80 + (0.45*sms);
+		}
+
+		return bill;
+	}
+
+	function result(){
+		var callresult = call();
+		var smsresult = sms();
+		var total = callresult + smsresult;
+
+		
+
+		window.alert("Charges for Calls: "+ callresult + "rs"+ "\n" + " Charges for SMS: " + smsresult + "rs"+ "\n" +" Total Charges: " + total +"rs")
+	}
+</script>
+</body>
+</html>
